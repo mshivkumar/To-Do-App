@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#04a4d4</color>
+    <color name="colorPrimaryDark">#008bb6</color>
+    <color name="colorAccent">#0390c4</color>
+
+    <color name="high_priority_text_color">#FF6666</color>
+    <color name="high_priority_background_color">#f5eeee</color>
+    <color name="high_priority_activity_background_color">#fff2f2</color>
+
+    <color name="medium_priority_text_color">#66d9ff</color>
+    <color name="medium_priority_background_color">#eef5f5</color>
+    <color name="medium_priority_activity_background_color">#f2fffd</color>
+
+    <color name="low_priority_text_color">#63ea80</color>
+    <color name="low_priority_background_color">#f0f5ee</color>
+    <color name="low_priority_activity_background_color">#f4fff2</color>
+
+    <color name="none_priority_text_color">#b6b3b3</color>
+    <color name="none_priority_background_color">#ffffff</color>
+    <color name="none_priority_activity_background_color">#f9f9f9</color>
+</resources>

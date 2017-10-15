@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_priority_options">
+        <item>@string/no_priority</item>
+        <item>@string/priority_low</item>
+        <item>@string/priority_medium</item>
+        <item>@string/priority_high</item>
+    </string-array>
+
+    <string-array name="settings_order_by_labels">
+        <item>@string/settings_order_by_priority_label</item>
+        <item>@string/settings_order_by_date_created_label</item>
+        <item>@string/settings_order_by_time_created_label</item>
+    </string-array>
+
+    <string-array name="settings_order_by_values">
+        <item>@string/settings_order_by_priority_value</item>
+        <item>@string/settings_order_by_date_created_value</item>
+        <item>@string/settings_order_by_time_created_value</item>
+    </string-array>
+
+    <string-array name="uploadImages">
+        <item>Pick from gallery</item>
+        <item>Click from camera</item>
+        <item>Remove image</item>
+    </string-array>
+
+    <string-array name="itemIds">
+        <item>gallery_image</item>
+        <item>camera_image</item>
+        <item>remove_image</item>
+    </string-array>
+
+    <string-array name="reminder_selection">
+        <item>@string/fifteen_minutes_early</item>
+        <item>@string/one_hour_early</item>
+        <item>@string/two_hour_early</item>
+        <item>@string/a_day_before</item>
+    </string-array>
+
+</resources>

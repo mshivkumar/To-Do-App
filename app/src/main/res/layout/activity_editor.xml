@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.android.to_do.ui.EditorActivity">
+    <LinearLayout
+        android:id="@+id/editor_container_layout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        tools:context="com.example.android.to_do.ui.EditorActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Title"
+            android:text="@string/todo_title"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="sans-serif-condensed"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+        <EditText
+            android:id="@+id/edit_todo_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:hint="@string/hint_todo_title"
+            android:inputType="textCapWords"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            style="@style/EditorFieldStyle"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Description"
+                    android:text="@string/todo_description"
+                    android:textColor="@color/colorAccent"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginTop="10dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+
+                <EditText
+                    android:id="@+id/edit_todo_description"
+                    android:hint="@string/hint_todo_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="textMultiLine|textCapWords"
+                    android:scrollHorizontally="false"
+                    android:ellipsize="end"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    style="@style/EditorFieldStyle"
+                    android:lines="8"
+                    android:minLines="6"
+                    android:gravity="top|left"
+                    android:scrollbars="vertical"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <!-- Label -->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/category_priority"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorAccent"
+                tools:text="@string/category_priority"/>
+
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/priority_radio_group"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp">
+                <RadioButton android:id="@+id/high_priority_radio_button"
+                             android:layout_width="0dp"
+                             android:layout_weight="1"
+                             android:layout_height="wrap_content"
+                             android:text="@string/high_priority_radio"
+                             android:fontFamily="sans-serif-condensed"
+                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                             android:textColor="@color/colorAccent"/>
+                <RadioButton android:id="@+id/medium_priority_radio_button"
+                             android:layout_width="0dp"
+                             android:layout_weight="1.19"
+                             android:layout_height="wrap_content"
+                             android:text="@string/medium_priority_radio"
+                             android:fontFamily="sans-serif-condensed"
+                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                             android:textColor="@color/colorAccent"/>
+                <RadioButton android:id="@+id/low_priority_radio_button"
+                             android:layout_width="0dp"
+                             android:layout_weight="1"
+                             android:layout_height="wrap_content"
+                             android:text="@string/low_priority_radio"
+                             android:fontFamily="sans-serif-condensed"
+                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                             android:textColor="@color/colorAccent"/>
+                <RadioButton android:id="@+id/no_priority_radio_button"
+                             android:layout_width="0dp"
+                             android:layout_weight="1"
+                             android:layout_height="wrap_content"
+                             android:text="@string/no_priority_radio"
+                             android:fontFamily="sans-serif-condensed"
+                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                             android:textColor="@color/colorAccent"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/set_due_date_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/add_due_date"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorAccent"
+                tools:text="Add Due Date"
+                android:layout_marginTop="26dp"
+                android:background="#eef4e7"
+                android:layout_marginRight="4dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/due_date_container_null_uri"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/due_date_text_null_uri"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/colorAccent"
+                android:text="@string/due_date"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                tools:text="Due Date : "/>
+
+            <TextView
+                android:id="@+id/due_date_date_null_uri"
+                tools:text="Tue Oct,01 2017"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:fontFamily="sans-serif-medium"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+            <TextView
+                android:id="@+id/due_date_time_null_uri"
+                tools:text="09:36 PM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+        </LinearLayout>
+
+        <!-- Due Date Time category -->
+        <LinearLayout
+            android:id="@+id/date_created_time_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/created_completed_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/due_date_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/set_due_date"
+                    android:textColor="@color/colorAccent"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    tools:text="Due : "/>
+
+                <TextView
+                    android:text="@string/created"
+                    tools:text="Created"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="26dp"
+                    android:textColor="@color/colorAccent"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+                <TextView
+                    android:text="@string/completed"
+                    tools:text="Completed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="26dp"
+                    android:textColor="@color/colorAccent"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/created_date_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/due_date_date_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    tools:text="Oct,30-3-2017"/>
+
+                <TextView
+                    android:id="@+id/date_created_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="26dp"
+                    tools:text="Oct,19 Sep 2017"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+                <CheckBox
+                    android:id="@+id/editor_completed_checkbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="26dp"
+                    android:layout_weight="1"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:theme="@style/CheckBox"
+                    android:src="@drawable/ic_done"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/created_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/due_date_time_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    tools:text="09:37 AM"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/time_created_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    tools:text="12:15 PM"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/delete_due_date_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/delete_reminder_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:gravity="center_vertical|center_horizontal"
+                        app:srcCompat="@android:drawable/ic_menu_delete"
+                        android:layout_weight="1"
+                        android:layout_alignParentEnd="true"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
