@@ -32,6 +32,7 @@ import com.example.android.to_do.SettingsActivity;
 import com.example.android.to_do.data.ToDoContract.ToDoEntry;
 import com.example.android.to_do.data.ToDoDbHelper;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -193,6 +194,7 @@ public class MainListActivity extends AppCompatActivity implements
     private void showDeleteConfirmationDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
         builder.setMessage(R.string.delete_dialog_msg);
         builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {

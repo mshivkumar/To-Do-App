@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static android.R.attr.id;
+import static com.example.android.to_do.R.drawable.todo;
 import static com.example.android.to_do.data.ToDoContract.ToDoEntry.CHECKBOX_CHECKED;
 
 /**
@@ -35,6 +36,7 @@ public class ToDoCursorAdapter extends CursorAdapter {
     private TextView mTitleTextView;
     private TextView mDescriptionTextView;
     private TextView mDateCreatedTextView;
+    private TextView mTimeTextView;
     private CheckBox mListCheckBox;
     private ImageView mReminderImageView;
     private Date mDatedateObject;
@@ -63,6 +65,7 @@ public class ToDoCursorAdapter extends CursorAdapter {
         mDateCreatedTextView = (TextView) view.findViewById(R.id.date_text_view);
         mListCheckBox = (CheckBox) view.findViewById(R.id.mainlist_checkBox);
         mReminderImageView = (ImageView) view.findViewById(R.id.reminder_image_view);
+        mTimeTextView = (TextView) view.findViewById(R.id.time_text_view);
 
         mReminderImageView.setVisibility(View.GONE);
         mListCheckBox.setVisibility(View.GONE);
@@ -72,10 +75,12 @@ public class ToDoCursorAdapter extends CursorAdapter {
         int dateColumnIndex = cursor.getColumnIndex(ToDoEntry.DUE_DATE);
         int priorityColumnIndex = cursor.getColumnIndex(ToDoEntry.COLUMN_TODO_PRIORITY);
         int mainListCheckBoxColumIndex = cursor.getColumnIndex(ToDoEntry.IS_CHECKED);
+        int timeColumnIndex = cursor.getColumnIndex(ToDoEntry.DUE_TIME);
 
         String todoTitle = cursor.getString(titleColumnIndex);
         String todoDescription = cursor.getString(descriptionColumnIndex);
         String todoDate = cursor.getString(dateColumnIndex);
+        String todoTime = cursor.getString(timeColumnIndex);
         int todoPriority = cursor.getInt(priorityColumnIndex);
         int todoIsCompletedMainListCheckBox = cursor.getInt(mainListCheckBoxColumIndex);
 
@@ -83,7 +88,8 @@ public class ToDoCursorAdapter extends CursorAdapter {
 
         mTitleTextView.setText(todoTitle);
         mDescriptionTextView.setText(todoDescription);
-        mDateCreatedTextView.setText(todoDate);
+        mDateCreatedTextView.setText(setReminder(todoDate));
+        mTimeTextView.setText(todoTime);
 
 
         switch (todoPriority) {
@@ -111,6 +117,7 @@ public class ToDoCursorAdapter extends CursorAdapter {
                 mTitleTextView.setPaintFlags(mTitleTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 mDescriptionTextView.setVisibility(View.GONE);
                 mDateCreatedTextView.setVisibility(View.GONE);
+                mTimeTextView.setVisibility(View.GONE);
                 break;
             default:
                 mListCheckBox.setVisibility(View.GONE);
@@ -132,23 +139,35 @@ public class ToDoCursorAdapter extends CursorAdapter {
 //                    mReminderImageView.setVisibility(View.VISIBLE);
 //                    mReminderImageView.setImageResource(android.R.drawable.ic_lock_idle_alarm);
                 }
+
+                //Make timeView gone if empty
+                if (TextUtils.isEmpty(todoTime)) {
+                    mTimeTextView.setVisibility(View.GONE);
+                } else {
+                    mTimeTextView.setVisibility(View.VISIBLE);
+                }
                 break;
         }
     }
 
     private String setReminder(String todoDate) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("E, LLL, dd, yyyy");
+        String dummy = "abc";
+        if(todoDate.isEmpty()) {
+            return dummy;
+        }else {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("E, LLL, dd, yyyy");
 
-        try {
-            mDatedateObject = dateFormat.parse(todoDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
+            try {
+                mDatedateObject = dateFormat.parse(todoDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            mDateString = formatListDate(mDatedateObject);
+            return mDateString;
         }
-        mDateString = formatDate(mDatedateObject);
-        return mDateString;
     }
 
-    private String formatDate(Date dateObject) {
+    private String formatListDate(Date dateObject) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("E, LLL, dd");
         return dateFormat.format(dateObject);
     }

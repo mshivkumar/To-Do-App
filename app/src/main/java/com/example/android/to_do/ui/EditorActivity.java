@@ -456,6 +456,7 @@ public class EditorActivity extends AppCompatActivity implements
     private void showUnsavedChangesDialog(
             DialogInterface.OnClickListener discardButtonClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
         builder.setMessage(R.string.unsaved_changes_dialog_msg);
         builder.setPositiveButton(R.string.discard, discardButtonClickListener);
         builder.setNegativeButton(R.string.keep_editing, new DialogInterface.OnClickListener() {
@@ -473,6 +474,7 @@ public class EditorActivity extends AppCompatActivity implements
     private void showDeleteConfirmationDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
         builder.setMessage(R.string.delete_dialog_msg);
         builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -493,6 +495,7 @@ public class EditorActivity extends AppCompatActivity implements
 
     public static void showRestoreDialog(final Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setCancelable(false);
         builder.setMessage(R.string.restore_msg);
         builder.setPositiveButton(R.string.restore_key, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -516,8 +519,8 @@ public class EditorActivity extends AppCompatActivity implements
     }
 
     private void showCompletedTaskDialog() {
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
         builder.setMessage(R.string.completed_dialog_msg);
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -544,6 +547,7 @@ public class EditorActivity extends AppCompatActivity implements
     private void showRestoreTaskDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
         builder.setMessage(R.string.restore_msg);
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -669,6 +673,7 @@ public class EditorActivity extends AppCompatActivity implements
     private void showDeleteDueDateDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
         builder.setMessage(R.string.remove_due_date_msg);
         builder.setPositiveButton(R.string.remove, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
